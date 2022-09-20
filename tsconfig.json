@@ -14,6 +14,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "jsxImportSource": "@emotion/react",
+    "types": ["vite/client", "@emotion/react/types/css-prop"],
     "jsx": "react-jsx"
   },
   "include": ["src"],

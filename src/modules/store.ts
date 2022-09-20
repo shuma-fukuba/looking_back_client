@@ -1,15 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { routerMiddleware } from 'connected-react-router'
 import authReducer from '~/modules/features/auth/authSlice'
+import history from './history'
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
   },
-  devTools: process.env.NODE_ENV !== 'production',
+  devTools: import.meta.env.NODE_ENV !== 'production',
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({
       serializableCheck: false,
-    })
+    }).concat(routerMiddleware(history))
   },
 })
 
