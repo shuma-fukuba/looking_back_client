@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { routerMiddleware } from 'connected-react-router'
-import authReducer from '~/modules/features/auth/authSlice'
+import { useSelector as rawUseSelector, TypedUseSelectorHook } from 'react-redux'
+import { connectRouter, routerMiddleware, RouterState } from 'connected-react-router'
+import authReducer, { State as AuthState} from '~/modules/features/auth/authSlice'
 import history from './history'
 
 export const store = configureStore({
@@ -17,3 +18,4 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
+export const useSelector: TypedUseSelectorHook<RootState> = rawUseSelector
