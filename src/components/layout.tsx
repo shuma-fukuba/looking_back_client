@@ -9,6 +9,7 @@ import {
 import type { MenuProps } from 'antd'
 import { Layout as AntLayout, Breadcrumb, Menu } from 'antd'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const { Header, Content, Footer, Sider } = AntLayout
 
@@ -18,37 +19,33 @@ interface Props {
   children: React.ReactNode
 }
 
-const getItem = (
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[]
-)=> {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  } as MenuItem
-}
-
-const items: MenuItem = [
-  getItem('Option 1', '1', <PieChartOutlined />),
-  getItem('Option 2', '2', <DesktopOutlined />),
-  getItem('User', 'sub1', <UserOutlined />, [
-    getItem('Tom', '3'),
-    getItem('Bill', '4'),
-    getItem('Alex', '5'),
-  ]),
-  getItem('Team', 'sub2', <TeamOutlined />, [
-    getItem('Team 1', '6'),
-    getItem('Team 2', '8'),
-  ]),
-  getItem('Files', '9', <FileOutlined />),
-]
-
 const Layout: React.FC<Props> = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false)
+
+  const getItem = (
+    label: React.ReactNode,
+    key: React.Key,
+    icon?: React.ReactNode,
+    children?: MenuItem[]
+  )=> {
+    return {
+      key,
+      icon,
+      children,
+      label,
+    } as MenuItem
+  }
+
+  const items: MenuItem[] = [
+    getItem(<Link to="/looking_backs">Looking Backs</Link>, 'looking_backs', <DesktopOutlined />),
+    getItem(<Link to="/learning_times">Learning Times</Link>, 'learning_times', <PieChartOutlined />),
+    getItem(<Link to="curriculums">Curriculums</Link>, 'curriculums', <UserOutlined />, [
+      getItem(<Link to="/curriculums/inputs">input</Link>, 'input'),
+      getItem(<Link to="/curriculums/outputs">output</Link>, 'output'),
+    ]),
+    getItem(<Link to="/users">Users</Link>, 'users', <TeamOutlined />),
+    getItem('Files', '9', <FileOutlined />),
+  ]
 
   return (
     <AntLayout css={ContentStyle}>
