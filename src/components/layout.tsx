@@ -5,6 +5,7 @@ import {
   PieChartOutlined,
   TeamOutlined,
   UserOutlined,
+  HomeOutlined
 } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
 import { Layout as AntLayout, Breadcrumb, Menu } from 'antd'
@@ -37,6 +38,7 @@ const Layout: React.FC<Props> = ({ children }) => {
   }
 
   const items: MenuItem[] = [
+    getItem(<Link to="/">Home</Link>, 'home', <HomeOutlined />),
     getItem(<Link to="/looking_backs">Looking Backs</Link>, 'looking_backs', <DesktopOutlined />),
     getItem(<Link to="/learning_times">Learning Times</Link>, 'learning_times', <PieChartOutlined />),
     getItem(<Link to="curriculums">Curriculums</Link>, 'curriculums', <UserOutlined />, [
