@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@ant-design/charts": "^1.4.2",
     "@ant-design/icons": "^4.7.0",
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.10.4",

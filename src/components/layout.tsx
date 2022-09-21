@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import {
-  DesktopOutlined,
+  FormOutlined,
   FileOutlined,
   PieChartOutlined,
   TeamOutlined,
@@ -39,7 +39,7 @@ const Layout: React.FC<Props> = ({ children }) => {
 
   const items: MenuItem[] = [
     getItem(<Link to="/">Home</Link>, 'home', <HomeOutlined />),
-    getItem(<Link to="/looking_backs">Looking Backs</Link>, 'looking_backs', <DesktopOutlined />),
+    getItem(<Link to="/looking_backs">Looking Backs</Link>, 'looking_backs', <FormOutlined />),
     getItem(<Link to="/learning_times">Learning Times</Link>, 'learning_times', <PieChartOutlined />),
     getItem(<Link to="curriculums">Curriculums</Link>, 'curriculums', <UserOutlined />, [
       getItem(<Link to="/curriculums/inputs">input</Link>, 'input'),
