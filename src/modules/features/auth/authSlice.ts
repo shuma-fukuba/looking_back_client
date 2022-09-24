@@ -14,29 +14,30 @@ const initialState: State = {
   token: null,
 }
 
-export interface signInArgs {
+export interface SignInArgs {
   email: string
   password: string
 }
 
 export const signIn = createAsyncThunk<
-  { user: string },
-  signInArgs,
-  { rejectValue: { user: undefined } }
+  { token: string },
+  SignInArgs,
+  { rejectValue: { token: undefined } }
 >('auth/signIn', async ({ email, password }, thunkApi) => {
   try {
-    const params = {
-      email: email,
+    const datas = {
+      username: email,
       password: password,
     }
     const res = await request.post({
       url: `${bldgBaseApiUri}/token`,
-      params: params,
+      data: datas,
     })
     const { data } = res
-    return data
+    console.log(data)
+    return { token: 'adfadhsifo' }
   } catch (e) {
-    return thunkApi.rejectWithValue({ user: undefined })
+    return thunkApi.rejectWithValue({ token: undefined })
   }
 })
 

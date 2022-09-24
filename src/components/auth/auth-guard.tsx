@@ -1,5 +1,4 @@
-import { useDispatch} from 'react-redux'
-import { useSelector } from '~/modules/store'
+import { useDispatch, useSelector } from '~/hooks/redux'
 import {} from 'react-router-dom'
 
 interface AuthGuardProps {

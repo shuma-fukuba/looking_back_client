@@ -15,6 +15,11 @@ import handleError from './error'
 //   })
 // }
 
+export const configure = () => {
+  axios.interceptors.request.use(config => {
+  })
+}
+
 interface RequestOption {
   url: string
   params?: any

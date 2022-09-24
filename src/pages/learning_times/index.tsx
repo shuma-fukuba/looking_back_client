@@ -1,10 +1,11 @@
 import DemoColumn from '~/components/graphs/column'
+import Layout from '~/components/layout'
 const LearningTimePage: React.FC = () => {
   return (
-    <div>
+    <Layout>
       <h1>Learning Time Page</h1>
       <DemoColumn />
-    </div>
+    </Layout>
   )
 }
 
